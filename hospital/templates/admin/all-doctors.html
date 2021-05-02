@@ -1,0 +1,51 @@
+{% extends 'admin/main.html' %}
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Doctors
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Profile Pic</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Details date</th>
+                        <th>Department</th>
+                        <th>Edit</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                {% for doc in doctors %}
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="{{doc.doctor_image.url}}" alt="" class="img-fluid border border-rounded">
+                        </td>
+                        <td>{{doc.first_name}}</td>
+                        <td>{{doc.last_name}}</td>
+                        <td>{{doc.email}}</td>
+                        <td>{{doc.phone_number}}</td>
+                        <td>{{doc.details}}</td>
+                        <td>{{doc.departments.name}}</td>
+                        <td>
+                        <a href="{%url 'update_doctor' doc.pk%}" class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
+                    </td>
+                        <td>
+                            <a href="{%url 'doctor_delete' doc.pk%}" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

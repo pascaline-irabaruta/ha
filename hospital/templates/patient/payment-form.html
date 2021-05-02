@@ -1,0 +1,37 @@
+<h1>Pay a small amount</h1>
+
+<form>
+    <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+      <h3>SUPPORT NATURE WITH AS LOW AS rwf 100</h3>
+      <button type="button" onClick="payWithRave()">Pay Here</button>
+  </form>
+  <script>
+      const publicKey = 'FLWPUBK_TEST-684ddd40c1c44d805919814ec5cae65d-X';
+      var e = JSON.parse("{{data|escapejs}}"); 
+      function payWithRave() {
+          var x = getpaidSetup({
+              PBFPubKey: publicKey,
+              customer_email: "zilfeur@gmail.com",
+              amount: 3000,
+              customer_phone: "0783879009",
+              currency: "RWF",
+              txref: "rave-123457",
+              custom_title: "Health-Care",
+              onclose: function() {},
+               callback: function(response) {
+      var txref = response.tx.txRef;
+      console.log("This is the response returned after a charge", response);
+      if (
+          response.tx.chargeResponseCode == "00" ||
+          response.tx.chargeResponseCode == "0"
+      ) {
+          document.location.href = "success.html"
+              // redirect to a success page
+      } else {
+          // redirect to a failure page.
+      }
+      x.close();
+  }
+          });
+      }
+  </script>

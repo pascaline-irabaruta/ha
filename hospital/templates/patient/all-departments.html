@@ -1,0 +1,225 @@
+{% load bootstrap4 %}
+{% load static%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>Hospital - {{title}}</title>
+    {% else %}
+    <title> Hospital </title>
+    {% endif %}
+
+
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script src="https://kit.fontawesome.com/83d474e45f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    {% endblock %}
+</head>
+
+<body>
+    <header style="background-color: #1b1b1b; color: rgba(255, 255, 255, 0.501);">
+        <div class="container">
+             <div class="row" >
+
+                <div class="col-md-8 col-sm-7 text-align-right">
+                    <span class="phone-icon"><i class="fa fa-phone"></i> +250-0788-304-545</span>
+                    <span class="date-icon"><i class="fa fa-calendar-plus-o"></i> 24/7</span>
+                    <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#" style="text-decoration: none;">hospitalheathcare@gmail.com</a></span>
+                    <span class="address-icon"><i class="fa fa-map-marker-alt"></i>KN 190st 32 Kigali-Rwanda</span>
+
+                </div>
+
+                <div class="col-md-4 col-sm-5">
+                    <ul class="social-icon">
+                        <li><a href="#" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-instagram"></a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div><br>
+    </header>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#ffff;">
+            <a class="navbar-brand" href="#"><img id="logo" src="https://res.cloudinary.com/zilfa/image/upload/v1616060947/healthlogo-removebg-preview_bkfcny.png"
+                    alt="logo"></a>
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{% url 'index' %}"
+                            style="font-weight: bold; padding-right: 100px; font-family: 'Poppins', sans-serif;font-size: 16px;">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#ABOUT"
+                            style="font-weight: bold; padding-right: 100px; font-family: 'Poppins', sans-serif;color: #45ac8b;font-size: 16px;">Services</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#CONTACT"
+                            style="font-weight: bold;padding-right: 100px;font-family: 'Poppins', sans-serif;">Contacts</a>
+                    </li>
+
+
+
+<hr>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <div class="jumbotron"
+        style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://res.cloudinary.com/zilfa/image/upload/v1614753558/bigstock-Male-Doctor-In-The-Hospital-190586731_yimnjh.jpg');background-size: cover; height: 70vh; background-position: center;">
+
+        <div style="margin-top: 10%;margin-left: 14%;color:white;">
+            <h2 style="font-weight: bold;">SERVICES</h2>
+            <h4> <span> <a href="{%url 'index'%}" style="color: white;text-decoration: none;">Home</a></span> / <span
+                    style="color: #45ac8b;font-weight: bold;">Services</span> </h4>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <br>
+        <br>
+
+        <h1 style="font-weight: bold;" data-aos="fade-right" data-aos-delay="300"> <span style="color: #45ac8b;border-bottom: 4px solid #45ac8b;font-weight: bold;max-width: 25%;margin: auto;color: #45ac8b;">What</span> <span style="color: rgba(0, 0, 0, 0.63);">We do</span>  </h1>
+       
+    </div>
+<br>
+<br>
+    <div>
+        <div class="container" style="padding-top: 3%;">
+
+            <div class="row">
+                {% for dep in departments %}
+                <div class="col-md-4" data-aos="fade-down" data-aos-delay="300">
+                    <div class="card mb-4 shadow-lg" style="height:90%">
+                        <a href="{% url 'department_detail' dep.id %}" style="text-decoration: none;">
+                            <img src="{{dep.department_image.url}}" width="25%"
+                                style="margin-left: 35%;margin-top: 10%;">
+
+                            <div class="card-body">
+                                <p
+                                    style="text-transform: uppercase;text-align: center;font-weight: bold;color: #45ac8b">
+                                    {{dep.name}}</p>
+
+                                <div class="foot">
+                                    <p style="color: rgb(112, 111, 111);text-align: center;">{{dep.description |slice:":80"}}...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+
+   
+        <!-- FOOTER -->
+        <footer style="background-color: #1b1b1b; color: rgba(255, 255, 255, 0.501);" >
+            <div class="container" >
+                 <div class="row" >
+                      <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-delay="900">
+                           <div class="footer-thumb">
+                                <h4 id="CONTACT" style="font-weight: 900;font-family: 'RocknRoll One', sans-serif;">Contact Info</h4> <hr style="background-color: rgba(255, 255, 255, 0.124);">
+                                <p>For more info don't hesitate to get in touch with us.</p>
+    
+                                <div class="contact-info">
+                                     <p><i class="fa fa-phone" style="color: #45ac8b"></i> +250-0788-304-545</p>
+                                     <p><i class="fa fa-envelope-o" style="color: #45ac8b"></i> <a href="#" style="text-decoration: none;">hospitalheathcare@gmail.com</a></p>
+                                     <p><i class="fa fa-map-marker-alt" style="color: #45ac8b"></i> KN 190st 32 Kigali-Rwanda</p>
+                                </div>
+    
+                           </div>
+                      </div>
+    
+                      <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-delay="600">
+                           <div class="footer-thumb">
+                                <h4 style="font-weight: 900;font-family: 'RocknRoll One', sans-serif;" >Quick links </h4> <hr style="background-color: rgba(255, 255, 255, 0.124);">
+                                <li style="list-style: none; color: black;"><a href="#ABOUT" style="text-decoration: none;"> &#8594; About Us  </a></li> <br>
+                                <li style="list-style: none; color: black;"><a href="{% url 'user_departments' %}" style="text-decoration: none;"> &#8594; Services </a></li><br>
+                                  <li style="list-style: none; color: black;"><a href="{% url 'user_doctors' %}" style="text-decoration: none;"> &#8594; Doctors </a></li> <br>
+                                  <li style="list-style: none; color: black;"><a href="#guide" style="text-decoration: none;"> &#8594; Patients & Visitors Guide </a></li> <br>
+                                  <li style="list-style: none; color: black;"><a href="#CONTACT" style="text-decoration: none;"> &#8594;Contacts </a></li>
+    
+                           </div>
+                      </div>
+    
+                      <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-delay="300">
+                           <div class="footer-thumb">
+                                <div class="opening-hours">
+                                     <h4 style="font-weight: 900;font-family: 'RocknRoll One', sans-serif;"> Services</h4> <hr style="background-color: rgba(255, 255, 255, 0.124);">
+                                        <p>Dermatology</p> <br>
+                                        <p>Ophthalmology </p><br>
+                                        <p>Cardiology</p> <br>
+                                        <p>24/7 Services</p>
+                                </div>
+    
+                        </div>
+                    </div>
+    
+                   </div>
+                </div>
+                <hr style="background-color: rgba(255, 255, 255, 0.124);">
+    
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <hr>
+    
+            <div class="copyright-text">
+                <p style="text-align: center; margin-top: 2px; font-size: medium;">Copyright &copy; 2021 Health care</p>
+            </div>
+    
+            <div class="col-md-2 col-sm-2 text-align-center">
+                <div class="angle-up-btn">
+                    <a href="#top" class="smoothScroll wow fadeInUp" data-wow-delay="2s"><i class="fa fa-angle-up"></i></a>
+                </div>
+            </div>
+            </div>
+    
+    
+            </div>
+        </footer>
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="{%static 'js/scripts.js'%}"> </script>
+{% bootstrap_javascript %}
+{% endblock %}
+</body>
+
+</html>
+{% endblock %}
+
+
+<!--End of the block content-->

@@ -1,0 +1,45 @@
+{% extends 'admin/main.html' %}
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Patients for {{ searched_doc.first_name }} {{ searched_doc.last_name }}
+    </div>
+    <div class="card-body">
+        {% if message %}
+        <p class="text-center" style="color: #45ac8b;font-weight: bold;">{{message}}</p>
+        {% endif %}
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Appointment Day</th>
+                        <th>Appointment hours</th>
+                        <th>Notification</th>
+                    </tr>
+                </thead>
+                {% for ap in appointment %}
+                <tbody>
+                    <tr>
+                        <td>{{ap.first_name}} {{ap.last_name}}</td>
+                        <td>{{ap.email}}</td>
+                        <td>{{ap.phone_number}}</td>
+                        <td>{{ap.schedules.app_day}}, {{ap.schedules.app_date}} </td>
+                        <td>{{ap.schedules.app_hour}}</td>
+            
+                        <td>
+                            <a href="{%url 'emergency' ap.pk%}" class="btn" style="background-color: #45ac8b;color: white;"><i class="far fa-bell"></i> Emergency</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

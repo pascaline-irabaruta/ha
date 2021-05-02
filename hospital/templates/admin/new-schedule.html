@@ -1,0 +1,22 @@
+{% extends 'admin/main.html' %}
+{%load crispy_forms_tags %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-6 m-auto">
+        <div class="card">
+            <div class="card-header" style="background-color: #871F78;">
+                <h5 class="card-text text-white">New Schedule</h5>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'new_schedule' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+            
+                    <input type="submit" class="btn" style="background-color: #871F78;" value="Add Schedule">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

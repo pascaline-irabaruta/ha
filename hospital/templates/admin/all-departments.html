@@ -1,0 +1,44 @@
+{% extends 'admin/main.html' %}
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Departments
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Department Image</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Edit</th>
+                        <th>Remove</th>
+
+                    </tr>
+                </thead>
+                {% for dep in departments %}
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="{{dep.department_image.url}}" alt="" class="img-fluid" width="150" height="150">
+                        </td>
+                      <td>{{dep.name }}</td>
+                      <td>{{dep.description}}</td>
+                        <td>
+                            <a href="{%url 'update_department' dep.pk%}" class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
+                        </td>
+                        <td>
+                            <a href="{%url 'department_delete' dep.pk%}" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                        </td>
+
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'admin/main.html' %}
+{%load crispy_forms_tags %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-6 m-auto">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h5 class="card-text text-white">New Department</h5>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'new_department' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+
+                    <input type="submit" class="btn btn-primary" value="Add Department">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

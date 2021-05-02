@@ -1,0 +1,6 @@
+Hello {{first_name}} {{last_name}}, Welcome to Health Care Hospital!
+Appointment Details
+{{schedule.doctor.first_name}} {{schedule.doctor.last_name}}
+{{schedule.doctor.departments.name}}
+{{schedule.app_day}} {{schedule.app_date }} {{schedule.app_hour }}
+You are safe with Us

@@ -1,0 +1,47 @@
+{% extends 'admin/main.html' %}
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Appointments
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Phone number</th>
+                        <th>Date & Time</th>
+                        <th>Status</th>
+
+                    </tr>
+                </thead>
+                {% for app in appointments %}
+                <tbody>
+                    <tr>
+                        <td>
+                            {{app.first_name}}
+                        </td>
+                      <td>{{app.last_name }}</td>
+                      <td>{{app.address}}</td>
+                      <td>{{app.email}}</td>
+                      <td>{{app.phone_number}}</td>
+                      <td>{{app.schedules.app_day}} - {{app.schedules.app_date}} - {{app.schedules.app_hour}} </td>
+                        <td>
+                           {{app.status}}
+                        </td>
+                        
+
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

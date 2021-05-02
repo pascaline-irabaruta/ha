@@ -1,0 +1,286 @@
+html, body{
+  font-family: 'Poppins';
+  font-size: 15px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  margin: 0;
+  top: 0;
+  left: 0;
+}
+li.appointment-btn {
+  margin-left: 5px;
+  margin: 3px 0 0 20px;
+}
+
+
+li.appointment-btn a {
+  background: #45ac8b;
+  color: #ffffff;
+  font-weight: 600;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 25px;
+  padding-right: 25px;
+  text-decoration: none;
+}
+
+.carousel-item{
+  height: 92.6vh;
+  min-height: 200px;
+  background:no-repeat scroll center scroll;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.carousel-item::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #000;
+  opacity: 0.4;
+}
+
+.carousel-caption{
+  bottom: 180px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.carousel-caption h5{
+  font-size: 35px;
+  font-weight: 700;
+  font-family: 'RocknRoll One', sans-serif;
+}
+
+.carousel-caption p{
+  font-size: 18px;
+  top: 2rem;
+}
+
+.slide-btn{
+  margin-top: 30px;
+}
+
+.slide-btn .btn{
+  background-color: #45ac8b;
+  border-radius: 0;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  margin-right: 15px;
+}
+
+.slide-btn .btn-2{
+
+  background-color: #45ac8b;
+}
+.slide-btn .btn-3{
+
+  background-color: #45ac8b;
+}
+
+.slide-btn .btn-1 a{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.slide-btn .btn-2 a{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+
+}
+.slide-btn .btn-3 a{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+
+}
+
+.slide-btn .btn:hover{
+  background-color:#214b4b;
+  color: white;
+  
+}
+
+#docbody{
+    background-color: rgb(31, 41, 41);
+}
+#docname,#docdes,#head{
+    color: wheat;
+}
+.heading {
+  margin-bottom: 40px;
+}
+
+
+.head{
+  background-image: url("https://karmod.eu/blog/wp-content/uploads/2015/06/Africa-Prefab-COVID-19-Hospital-buildings-1.png");
+  background-size: cover;
+  background-position-x: 1280px;
+  background-position-y: 200px;
+  padding-left: 100px;
+  padding-top: 50px;
+  color:white;
+}
+
+/* header */
+#logo{
+  height: 65px;
+  width: 160px;
+}
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #f2f2f2;
+  display: flex;
+  height: 45px;
+}
+header .col-md-8 {
+  padding-right: 0;
+}
+header p,
+header span {
+  font-size: 12px;
+  line-height: 24px;
+  padding-top: 12px;
+}
+header a,
+header span {
+  color: #747474;
+}
+
+header span {
+  font-weight: 500;
+  display: inline-block;
+  padding: 11px 15px;
+}
+
+header span.address-icon {
+  border-left: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
+  padding-right: 19px;
+  padding-left: 19px;
+}
+
+header span i {
+  color: #45ac8b;
+  margin-right: 5px;
+}
+
+/* end header */
+/* footer */
+footer {
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+footer h4 {
+  padding-bottom: 5px;
+}
+
+footer a {
+  color: #757575;
+}
+
+footer a:hover {
+  color: #4267b2;
+}
+
+.contact-info {
+  padding-top: 10px;
+}
+
+.contact-info .fa {
+  background: #393939;
+  border-radius: 100%;
+  color: #ffffff;
+  font-size: 15px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  margin-right: 5px;
+  margin-bottom: 2px;
+}
+
+.opening-hours p {
+  line-height: 18px;
+}
+
+.opening-hours span {
+  font-weight: 500;
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.copyright-text p,
+.footer-link a {
+  color: #858585;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.footer-link a {
+  font-size: 12px;
+  display: inline-block;
+  padding: 0 10px;
+  margin-top: 4px;
+}
+
+.angle-up-btn {
+  position: relative;
+  bottom: 4em;
+  display: block;
+}
+
+.angle-up-btn a {
+  background: #45ac8b;
+  border: 1px solid #f2f2f2;
+  border-radius: 3px;
+  font-size: 20px;
+  color: #393939;
+  display: inline-block;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  transition: transform 0.1s ease-in;
+  transform: translateX(0);
+  margin-left: 1000px;
+}
+
+.angle-up-btn a:hover {
+  background: #4267b2;
+  color: #ffffff;
+  transform: translateY(-5px);
+}
+       /* social media */
+
+.social-icon li {
+  display: inline-block;
+  list-style: none;
+}
+
+.social-icon li a {
+  border-radius: 100px;
+  color: #45ac8b;
+  font-size: 15px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+}
+
+.social-icon li a:hover {
+  background: #000;
+  color: #45ac8b;
+}
+ /* end social media */
+/* end footer */
